@@ -1,4 +1,4 @@
-# avaliacao 3
+# Avaliacao 3
 Evidenciar a execução do exemplo de isolates contido no github da disciplina https://github.com/ricdtaveira/mobdev-parte-01/blob/master/16-programacao-assincrona/16-isolates-03.dart. Para isso:
 
 Criar um projeto Dart;
