@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
 
-String email = 'ismael.nascimento08@aluno.ifce.edu.br';
+String email = 'yasmin.sousa07@aluno.ifce.edu.br';
 String pass = 'pkrw bybi womx emxc';
 
 main() async {
@@ -11,10 +11,10 @@ main() async {
 
   // Cria uma mensagem de e-mail
   final message = Message()
-    ..from = Address(email, 'Ismael Lira Nascimento')
+    ..from = Address(email, 'Yasmin Sousa Oliveira ')
     ..recipients.add(email)
-    ..subject = 'Estou testando o código da avaliação 05 de PDMII'
-    ..text = 'Esse é um email de teste! 🤪';
+    ..subject = 'Teste do código da avaliação 05 de Pdm2'
+    ..text = 'Enviado com sucesso!!';
 
   try {
     // Envia o e-mail usando o servidor SMTP do Gmail
