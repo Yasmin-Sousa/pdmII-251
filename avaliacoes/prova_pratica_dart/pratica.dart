@@ -13,9 +13,10 @@ void main() async {
   // Ceriando a tabela
 
   db.execute('''
-    CREATE TABLE TB_Estudantes (
-    id INTEGER NOT NULL PRIMARY KEY,   
-    nome TEXT NOT NULL,                
+    CREATE TABLE TB_Curso (
+    id INTEGER NOT NULL PRIMARY KEY, 
+    descricao TEXT NOT NULL,   
+    
     idade INTEGER                      
 
     );
@@ -25,9 +26,9 @@ void main() async {
 
 
   // Inserção assíncrona de registros
-  await inserirEstudante(db, 'Yasmin', 19);
-  await inserirEstudante(db, '´Fulana', 18);
-  await inserirEstudante(db, '´Deltraninha', 19);
+  await inserirCurso(db, 'Informatica', 'curso de informatica');
+  await inserirCurso(db, 'Telecomunicacoes', 'curso de telecomunicacoes');
+  await inserirCurso(db, 'Mecanica', 'curso de mecanica');
 
 
 
