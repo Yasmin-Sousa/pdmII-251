@@ -15,15 +15,39 @@ void main() async {
   db.execute('''
     CREATE TABLE TB_Curso (
     id INTEGER NOT NULL PRIMARY KEY, 
-    descricao TEXT NOT NULL,   
-    
-    idade INTEGER                      
+    nome TEXT NOT NULL,
+    descricao TEXT   
+    );
 
+  ''');
+  
+db.execute('''
+    CREATE TABLE TB_Aluno (
+    id INTEGER NOT NULL PRIMARY KEY, 
+    nome TEXT NOT NULL,
+    matricula TEXT NOT NULL   
     );
 
   ''');
 
+db.execute('''
+    CREATE TABLE TB_Disciplina (
+    id INTEGER NOT NULL PRIMARY KEY, 
+    nome TEXT NOT NULL,
+    descricao TEXT,
+    qtdAulas INTEGER   
+    );
 
+  ''');
+
+  db.execute('''
+    CREATE TABLE TB_Professor (
+    id INTEGER NOT NULL PRIMARY KEY, 
+    codigo TEXT
+    nome TEXT NOT NULL,  
+    );
+
+  ''');
 
   // Inserção assíncrona de registros
   await inserirCurso(db, 'Informatica', 'curso de informatica');
@@ -34,24 +58,24 @@ void main() async {
 
   // Consulta assíncrona de registros
   print('\n Dados após inserção:');
-  await consultarEstudantes(db);
+  await consultarCurso(db);
 
 
   // Atualização assíncrona de registros
-  await atualizarEstudante(db, 1, 'Yasmin', 19);
-  await atualizarEstudante(db, 1, 'Fulana', 18);
+  await atualizarCurso(db, 1, 'Informatica', 'curso de informatica');
+  await atualizarCurso(db, 1, 'Telecomunicacoes' 'curso de telecomunicacoes');
 
 
 
   print('\n Dados após atualização:');
 
-  await consultarEstudantes(db);
+  await consultarCurso(db);
 
   
   // Exclusão assíncrona de registros
-  await excluirEstudante(db, 2);
+  await excluirCurso(db, 2);
   print('\n Dados após exclusão:');
-  await consultarEstudantes(db);
+  await consultarCurso(db);
 
 
 
@@ -63,26 +87,36 @@ void main() async {
 
 
 // Função assíncrona para inserir registros
-Future<void> inserirEstudante(Database db, String nome, int idade) async {
+Future<void> inserirCurso(Database db, String nome, String descricao) async {
   await Future(() {
-   final stmt = db.prepare('INSERT INTO TB_Estudantes (nome, idade) VALUES (?, ?)');
-   stmt.execute([nome, idade]);
+   final stmt = db.prepare('INSERT INTO TB_Curso (nome, descricao);
+   stmt.execute([nome, descricao]);
    stmt.dispose();
-   print('Registro inserido: $nome, $idade anos');
+   print('Registro inserido: $nome, $descricao');
+
+  });
+
+}
+
+Future<void> inserirProfessor(Database db, String nome, String codigo) async {
+  await Future(() {
+   final stmt = db.prepare('INSERT INTO TB_Curso (nome, descricao);
+   stmt.execute([nome, descricao]);
+   stmt.dispose();
+   print('Registro inserido: $nome, $descricao');
 
   });
 
 }
 
 
+//Função assíncrona para consultar registros
 
-// Função assíncrona para consultar registros
 Future<void> consultarEstudantes(Database db) async {
-
-  await Future(() {
-    final resultSet = db.select('SELECT * FROM TB_Estudantes');
+   await Future(() {
+    final resultSet = db.select('SELECT * FROM TB_Curso');
     for (final row in resultSet) {
-    print('Estudante[id: ${row['id']}, nome: ${row['nome']}, idade: ${row['idade']}]');
+    print('Curso[id: ${row['id']}, nome: ${row['nome']}, descricao: ${row['descricao']}]');
 
     }
 
@@ -95,8 +129,8 @@ Future<void> consultarEstudantes(Database db) async {
 // Função assíncrona para atualizar registros
 Future<void> atualizarEstudante(Database db, int id, String novoNome, int novaIdade) async {
   await Future(() {
-    db.execute('UPDATE TB_Estudantes SET nome = ?, idade = ? WHERE id = ?', [novoNome, novaIdade, id]);
-    print('Registro atualizado: id=$id -> $novoNome, $novaIdade anos');
+    db.execute('UPDATE TB_Curso SET nome = ?, idade = ? WHERE id = ?', [novoNome, novaDescricao, id]);
+    print('Registro atualizado: id=$id -> $novoNome, $novaDescricao');
 
   });
 
@@ -107,7 +141,7 @@ Future<void> atualizarEstudante(Database db, int id, String novoNome, int novaId
 // Função assíncrona para excluir registros
 Future<void> excluirEstudante(Database db, int id) async {
   await Future(() {
-    db.execute('DELETE FROM TB_Estudantes WHERE id = ?', [id]);
+    db.execute('DELETE FROM TB_Curso WHERE id = ?', [id]);
    print('Registro excluído: id=$id');
 
   });
