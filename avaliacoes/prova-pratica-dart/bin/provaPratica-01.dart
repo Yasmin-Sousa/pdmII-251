@@ -130,7 +130,7 @@ class PedidoVenda {
   };
 }
 
-//Função que conecta com o e-mail -> Criada por mim em outro código: https://github.com/Jot4g3/pdmII-251/blob/main/estudos/provapratica1_estudo/lib/toemail.dart
+//Função que conecta com o e-mail -> Criada por mim em outro código:https://github.com/Yasmin-Sousa/pdmII-251/tree/main/avaliacoes/avaliacao-05
 void sendEmail({
   required String nomeRemetente,
   required String emailRemetente,
@@ -160,7 +160,7 @@ void sendEmail({
 
 void main(List<String> arguments) {
   //Criando objeto Cliente
-  Cliente cliente1 = Cliente(codigo: 1, nome: "João Gabriel Aguiar", tipoCliente: 1);
+  Cliente cliente1 = Cliente(codigo: 1, nome: "Yasmin Sousa Oliveira", tipoCliente: 1);
 
   //Criando objeto Vendedor
   Vendedor vendedor1 = Vendedor(codigo: 1, nome: "Ricardo Duarte Taveira", comissao: 10.0);
