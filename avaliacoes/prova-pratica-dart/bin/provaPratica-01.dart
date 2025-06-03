@@ -166,18 +166,18 @@ void main(List<String> arguments) {
   Vendedor vendedor1 = Vendedor(codigo: 1, nome: "Ricardo Duarte Taveira", comissao: 10.0);
 
   //Criando objeto Veiculo
-  Veiculo laFerrari = Veiculo(codigo: 1, descricao: "La Ferrari é um dos carros mais incríveis da Ferrari. Conta com mais de 960 cavalos de pura potência!", valor: 38990000.00);
+  Veiculo laFerrari = Veiculo(codigo: 1, descricao: "Onix é um dos carros mais incríveis da Chevrolet. Conta com mais de 121 cavalos de potência!", valor: 95.290);
 
   //Criando objetos ItemPedido
-  ItemPedido tapetes = ItemPedido(sequencial: 1, descricao: "Tapetes para La Ferrari - Produzido na Holanda, manualmente.", quantidade: 5, valor: 2499.90);
-  ItemPedido cheirinhoDeArCondicionado = ItemPedido(sequencial: 2, descricao: "Cheirinho sabor menta especial para Ferraris. Deixa o carro com um ar de paz indescritível!", quantidade: 2, valor: 39.90);
+  ItemPedido tapetes = ItemPedido(sequencial: 1, descricao: "Tapetes para Onix - Produzido na Holanda, manualmente.", quantidade: 5, valor: 249.90);
+  ItemPedido cheirinhoDeArCondicionado = ItemPedido(sequencial: 2, descricao: "Cheirinho sabor menta para Onix. Deixa o carro com um ar de paz indescritível!", quantidade: 2, valor: 39.90);
 
   //Criando objeto PedidoVenda
-  PedidoVenda venda1 = PedidoVenda(codigo: "123abc", data: DateTime.parse('2025-05-29T14:29:04Z'), cliente: cliente1, vendedor: vendedor1, veiculo: laFerrari, acessorios: [tapetes, cheirinhoDeArCondicionado]);
+  PedidoVenda venda1 = PedidoVenda(codigo: "ABC123", data: DateTime.parse('2025-05-29T14:29:04Z'), cliente: cliente1, vendedor: vendedor1, veiculo: Onix, acessorios: [tapetes, cheirinhoDeArCondicionado]);
   venda1.valorPedido = venda1.calcularPedido();
 
   //Criando JSON da venda1
   String pedidoVendaJSON = jsonEncode(venda1);
 
-  sendEmail(nomeRemetente: "João Gabriel Aguiar de Senna", emailRemetente: "gabriel.joao61@aluno.ifce.edu.br", senhaRemetente: "fpsy fvmo osag juuz", emailDestinatario: "taveira@ifce.edu.br", assuntoEmail: "Envio de JSON - Pedido Venda 123abc", conteudoEmail: pedidoVendaJSON, quantidadeEnvios: 1);
+  sendEmail(nomeRemetente: "Yasmin Sousa Oliveira ", emailRemetente: "yasmin.sousa07@aluno.ifce.edu.br", senhaRemetente: "fpsy fvmo osag juuz", emailDestinatario: "taveira@ifce.edu.br", assuntoEmail: "Envio de JSON - Pedido Venda ABC123", conteudoEmail: pedidoVendaJSON, quantidadeEnvios: 1);
 }
