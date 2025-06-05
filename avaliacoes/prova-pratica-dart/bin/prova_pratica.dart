@@ -26,7 +26,7 @@ class Aluno{
   String nome;
   String matricula
 
-  // Fazendo construtor de Vendedor, com parâmetros nomeados e obrigatórios.
+  // Fazendo construtor de Aluno, com parâmetros nomeados e obrigatórios.
   Aluno({
     required this.id,
     required this.nome,
@@ -40,13 +40,13 @@ class Aluno{
   };
 }
 
-//Classe Veículo
+//Classe Disciplina 
 class Disciplina{
   int id;
   String descricao;
   int qtdAulas;
 
-  // Fazendo construtor de Veiculo, com parâmetros nomeados e obrigatórios.
+  // Fazendo construtor de Disciplina, com parâmetros nomeados e obrigatórios.
   Disciplina({
     required this.id,
     required this.descricao,
