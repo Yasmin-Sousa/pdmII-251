@@ -3,12 +3,12 @@ import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
 import 'package:mailer/smtp_server/gmail.dart';
 
-//Classe Cliente
+//Classe Curso
 class Curso{
   int id;
   String descricao;
 
-  // Fazendo construtor de Cliente, com parâmetros nomeados e obrigatórios.
+  // Fazendo construtor de Curso, com parâmetros nomeados e obrigatórios.
   Curso({
     required this.id,
     required this.descricao
@@ -20,7 +20,7 @@ class Curso{
   };
 }
 
-//Classe Vendedor
+//Classe Aluno
 class Aluno{
   int id;
   String nome;
