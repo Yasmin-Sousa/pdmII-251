@@ -11,14 +11,14 @@ void main() {
 
   // Create a table and insert some data
   db.execute('''
-    CREATE TABLE TB_Estudantes (
+    CREATE TABLE TB_ALUNO (
       id INTEGER NOT NULL PRIMARY KEY,
       name TEXT NOT NULL
     );
   ''');
 
   // Prepare a statement to run it multiple times:
-  final stmt = db.prepare('INSERT INTO TB_Estudantes (name) VALUES (?)');
+  final stmt = db.prepare('INSERT INTO TB_ALUNO (name) VALUES (?)');
   stmt
     ..execute(['Yasmin Sousa'])
     ..execute(['João Pedro']);
@@ -29,7 +29,7 @@ void main() {
   // You can run select statements with PreparedStatement.select, or directly
   // on the database:
   final ResultSet resultSet =
-      db.select('SELECT * FROM TB_Estudantes');
+      db.select('SELECT * FROM TB_ALUNO');
 
   // You can iterate on the result set in multiple ways to retrieve Row objects
   // one by one.
